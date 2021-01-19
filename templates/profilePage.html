@@ -1,0 +1,228 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <title>Profile</title>
+    <meta content="" name="descriptison">
+    <meta content="" name="keywords">
+
+      <!-- Favicons -->
+  <link href="{% static 'img/favicon.png' %}" rel="icon">
+  <link href="{% static 'img/apple-touch-icon.png' %}" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Montserrat:300,400,500,700" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/ionicons/css/ionicons.min.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/owl.carousel/assets/owl.carousel.min.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/venobox/venobox.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/aos/aos.css' %}" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+    <link href="#" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+
+
+<style>
+body{
+background-color:#e6e6e6;
+}
+.back{
+margin:5px;
+border:none;
+}
+.back a{
+color:#fff;
+}
+
+    .profile{
+     margin-top:50px;
+     margin-left:10px;
+     height:60%;
+     width:600px;
+     border:1px solid #f2f2f2;
+     box-shadow: 2px 2px #d9d9d9;
+
+     padding:10px;
+     border-radius:10px;
+     display:inline-block;
+     float:left;
+     background-color:#fff;
+
+    }
+    .edit-profile{
+    border:1px solid #f2f2f2;
+    box-shadow: 2px 2px #d9d9d9;
+    display:inline-block;
+    border-radius:10px;
+    float:right;
+    height:100px;
+    width:300px;
+    margin-top:50px;
+    margin-right:180px;
+    padding:10px;
+    background-color:#fff;
+}
+.edit-profile a{
+
+margin:10px;
+font-size:15px;
+color:#8c8c8c;
+}
+.profile-photo img{
+    float:right;
+    border-radius:200px;
+    height:100px;
+    width:100px;
+    margin-right:15px;
+    padding:5px;
+    border:5px solid #fff;
+}
+.header{
+background-color:#0066cc;
+width:580px;
+height:100px;
+border-radius:5px;
+}
+h2{
+color:#fff;
+margin:15px;
+}
+.courses{
+border:1px solid #f2f2f2;
+    box-shadow: 2px 2px #d9d9d9;
+    display:inline-block;
+    border-radius:10px;
+    float:right;
+    height:300px;
+    width:300px;
+    margin-top:10px;
+    margin-right:180px;
+    padding:5px;
+    background-color:#fff;
+
+}
+.courses img{
+    border-radius:5px;
+    height:290px;
+    width:290px;
+}
+.courses-txt {
+  position: absolute;
+  top:  55%;
+  left: 67%;
+  transform: translate(-50%, -50%);
+  color:#fff;
+}
+.crs-btn{
+  position: absolute;
+  top: 70%;
+  left: 60%;
+  background-color:#00a3cc;
+  border:none;
+  border-radius:3px;
+  color:#fff;
+  height:32px;
+}
+.crs-btn a:hover{
+background-color:#00a3cc;
+}
+</style>
+</head>
+<body>
+<h1>You need to complete your profile first!!</h1>
+<h5>If done previously click on back</h5>
+  <button class="btn btn-primary btn-sm back"><a href="{% url 'home' %}"> BACK</a></button>
+
+<!--<button type="button" class="btn btn-danger mt-3">
+    Login Times <span class="badge badge-light">{{ct}}</span>
+</button>-->
+<div class="container">
+    {% if pro.login_count < 1 %}
+        <h2>Login count is {{pro.login_count}}</h2>
+    {% endif %}
+    <div class="profile">
+   <div class="header">
+            <h2>{{request.user.first_name}}
+                {{request.user.last_name}}
+            </h2>
+            <div  class="profile-photo">
+                <img src="{%static 'images/user-avatar-big-03.jpg' %}"  alt="Edit photo">
+
+            </div>
+
+   </div>
+
+        <br>
+        <h4>Education</h4>
+        <p>{{pro.education}}</p>
+<hr/>
+        <h4>Stream</h4>
+        <p>{{pro.stream}}</p>
+<hr/>
+           <h4>Company</h4>
+        <p>{{pro.company}}</p>
+<hr/>
+              <h4>Current Position</h4>
+        <p>{{pro.current_position}}</p>
+<hr/>
+           <h4>Country</h4>
+        <p>{{pro.country}}</p>
+<hr/>
+           <h4>Location</h4>
+        <p>{{pro.location}}</p>
+<hr/>
+
+        <h4>Experience</h4>
+        <p>{{pro.experience}}<br></p>
+<hr/>
+
+    <h4>Skills</h4>
+        <p>{{pro.skills}}</p>
+<hr/>
+              <h4>Interests</h4>
+        <p>{{pro.interests}}</p>
+<hr/>
+              <h4>Contact Info</h4>
+        <p>{{pro.contact}}</p>
+<hr/>
+
+
+</div>
+
+      <div class="edit-profile">
+
+        <a href="{% url 'editProfile' request.user.id %}">Edit Profile</a><br>
+          <hr/>
+        <a href="{% url 'post' %}">Add Post</a>
+
+      </div>
+
+      <div class="courses">
+       <img src="{%static 'images/featured-city-01.jpg' %}">
+                    <button class="crs-btn">See Courses</button>
+
+
+          <div class="courses-txt">“The more that you read,<br>
+                                    the more things you will know. <br>
+                                    The more that you learn, <br>
+                                    the more places you’ll go.”</div>
+
+
+      </div>
+
+
+</div>
+
+
+</body>
+</html>

@@ -1,0 +1,59 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+<link rel="stylesheet" href="{% static 'css/login.css' %}">
+
+    <style>
+
+
+
+    </style>
+</head>
+<body>
+<!-- Login Registration Menubar -->
+    <div class="header-widget">
+
+       <ul class="nav nav-tabs">
+        <li class="nav-item">
+        <a class="nav-link active" style="color:blue" href="{% url 'login' %}">Log In</a>
+        </li>
+        <li class="nav-item">
+        <a class="nav-link" href="{% url 'register' %}">Register</a>
+        </li>
+       </ul>
+  </div>
+<!-- Login Registration / End -->
+
+<!-- Welcome Message -->
+<p>We're glad to see you again!</p>
+<h6 class="text">Don't have account? <a href="{% url 'register' %}">Sign Up!</a></h6>
+<!-- Welcome Message / End -->
+
+<!-- Form -->
+<div class="wrapper fadeInDown fullwidth">
+
+  <div id="formContent">
+
+
+
+    <!-- Login Form -->
+    <form method="POST" action="">
+        {% csrf_token %}
+      <input type="text" id="login" class="fadeIn second" name="username" placeholder="email">
+      <input type="password" id="password" class="fadeIn second" name="password" placeholder="password">
+        <a class="forgetPass" href="#">Forgot Password?</a><br>
+      <input type="submit" class="fadeIn fourth" value="Log In">
+    </form>
+
+
+  </div>
+</div>
+<!-- Form /End-->
+</body>
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</html>

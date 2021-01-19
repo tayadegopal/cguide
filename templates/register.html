@@ -1,0 +1,90 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+	<link rel="stylesheet" href="{% static 'css/register.css' %}">
+
+	<style>
+
+
+    </style>
+</head>
+
+<body>
+<!-- Login Registration Menubar -->
+    <div class="header-widget">
+
+       <ul class="nav nav-tabs">
+        <li class="nav-item">
+        <a class="nav-link " href="{% url 'login' %}">Log In</a>
+        </li>
+        <li class="nav-item">
+        <a class="nav-link active"  style="color:blue" href="{% url 'register' %}">Register</a>
+        </li>
+       </ul>
+  </div>
+<!-- Login Registration / End -->
+<!-- Welcome Message -->
+  <p>Let's create your account!</p>
+<!-- Welcome Message /End -->
+
+    <!-- Registration Form -->
+    <form method="POST" action="">
+        {% csrf_token %}
+          <div class="box fadeInDown">
+           	<div id="formContent" class="fadeIn second">
+
+                <div class="input-div pass focus">
+					<div class="div">
+           		    		<h6>{{form.first_name.label}}</h6>
+					        {{form.first_name}}
+            	   </div>
+            	</div>
+
+                <div class="input-div pass focus">
+					<div class="div">
+           		    		<h6>{{form.last_name.label}}</h6>
+					        {{form.last_name}}
+            	   </div>
+            	</div>
+
+
+			  <div class="input-div one focus">
+           		   <div class="div">
+           		   		<h6>Email Id</h6>
+					       {{form.username}}
+				   </div>
+           		</div>
+
+           		<div class="input-div pass focus">
+           		   <div class="div">
+           		    	<h6>{{form.password1.label}}</h6>
+					        {{form.password1}}
+            	   </div>
+            	</div>
+                <div class="input-div pass focus">
+           		   <div class="div">
+           		    	<h6>Repeat Password</h6>
+                            {{form.password2}}
+            	   </div>
+            	</div><br>
+                  {{form.errors}}
+				<input type="submit" class="btn1" value="Register" name="Create User">
+			</div>
+
+		  </div>
+    </form>
+<!-- Form /End -->
+
+
+</body>
+
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+
+</html>

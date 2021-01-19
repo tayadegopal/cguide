@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Comments</title>
+</head>
+<body>
+<h5>Comments...</h5>
+<p>Add Comment here... </p>
+<form action="" method="POST">
+    {% csrf_token %}
+    <!--Name:<br/><input type="text" name="name" ><br/><br/>-->
+    Body:<br/><textarea name="body" ></textarea><br/>
+    <input type="submit" value="ADD">
+</form><br/>
+<hr>
+
+		{% if not post.comments.all %}
+		   <strong>No Comments Yet.. </strong>
+		{% else %}
+           {% for comment in post.comments.all %}
+		       <strong>{{ comment.name }}-
+			       {{ comment.date_added}}</strong>
+		        <br/>
+		               {{ comment.body }}
+                <br/>
+                 <hr>
+		{% endfor %}
+		{% endif %}
+
+</body>
+</html>
